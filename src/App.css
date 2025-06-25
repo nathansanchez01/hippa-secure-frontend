@@ -1,0 +1,58 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  min-height: 100vh;
+}
+
+.homepage-container {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1.5px 4px rgba(0,0,0,0.04);
+    max-width: 420px;
+    width: 100%;
+    padding: 2.5rem 2rem 2rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+.homepage-container h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #2d3a4a;
+}
+
+.homepage-container p {
+  color: #5a6a7a;
+  margin-bottom: 2rem;
+}
+
+.homepage-links {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.homepage-links a {
+  background: #4f8cff;
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(79,140,255,0.08);
+}
+
+.homepage-links a:hover {
+  background: #2563eb;
+  box-shadow: 0 4px 16px rgba(79,140,255,0.16);
+}
