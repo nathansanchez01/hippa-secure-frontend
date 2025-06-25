@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { signup } from '../utils/api';
 
 const SignupPage: React.FC = () => {
@@ -28,28 +29,27 @@ const SignupPage: React.FC = () => {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: '2rem auto' }}>
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username</label>
-          <input name="username" value={form.username} onChange={handleChange} required />
+    <div className="auth-container">
+      <h2>Create Your Account</h2>
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input id="username" name="username" value={form.username} onChange={handleChange} required className="form-control" />
         </div>
-        <div>
-          <label>Password</label>
-          <input name="password" type="password" value={form.password} onChange={handleChange} required />
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input id="password" name="password" type="password" value={form.password} onChange={handleChange} required className="form-control" />
         </div>
-        <div>
-          <label>Role</label>
-          <select name="role" value={form.role} onChange={handleChange}>
-            <option value="clinician">Clinician</option>
-            <option value="admin">Admin</option>
-          </select>
-        </div>
-        <button type="submit" disabled={loading}>{loading ? 'Signing up...' : 'Sign Up'}</button>
+        <input type="hidden" name="role" value="clinician" />
+        <button type="submit" disabled={loading} className="auth-button">
+          {loading ? 'Signing up...' : 'Sign Up'}
+        </button>
       </form>
-      {error && <div style={{ color: 'red', marginTop: 8 }}>{error}</div>}
-      {success && <div style={{ color: 'green', marginTop: 8 }}>{success}</div>}
+      {error && <div className="message error">{error}</div>}
+      {success && <div className="message success">{success}</div>}
+      <p className="auth-switch">
+        Already have an account? <Link to="/login">Login</Link>
+      </p>
     </div>
   );
 };
