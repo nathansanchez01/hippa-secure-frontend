@@ -3,6 +3,7 @@ import { RxDashboard } from "react-icons/rx";
 import { IoPersonOutline } from "react-icons/io5";
 import { FaUserDoctor } from "react-icons/fa6";
 import { TbMessageChatbotFilled } from "react-icons/tb";
+import { useNavigate } from 'react-router-dom';
 
 interface SidebarProps {
     showSidebar: boolean;
@@ -40,9 +41,14 @@ const Sidebar = ({ showSidebar, setShowSidebar, setCurrentView, isMobile, role }
         }
     };
 
+    const navigate = useNavigate();
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate('/');
+    };
+
     return (
         <aside className={`sidebar ${showSidebar ? "sidebar-show" : "sidebar-hide"} ${isMobile ? "mobile-sidebar" : ""}`}>
-
             <div className="sidebar-content">
                 <div className="dashboard-button">
                     <span className="dashboard-text">Dashboard</span>
@@ -62,6 +68,12 @@ const Sidebar = ({ showSidebar, setShowSidebar, setCurrentView, isMobile, role }
                     ))}
                 </ul>
             </div>
+            <button
+                className="logout-button"
+                onClick={handleLogout}
+            >
+                Logout
+            </button>
         </aside>
     );
 };
