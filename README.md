@@ -34,7 +34,8 @@ Follow these instructions to get the frontend development environment up and run
 
 1.  Navigate to the `frontend` directory:
     ```bash
-    cd frontend
+    git clone https://github.com/nathansanchez01/hippa-secure-frontend.git
+    cd hippa-secure-frontend
     ```
 2.  Install the necessary dependencies:
     ```bash
@@ -43,7 +44,7 @@ Follow these instructions to get the frontend development environment up and run
 
 ### Running the Development Server
 
-1.  Make sure the backend server is running on `http://localhost:3001`.
+1.  Make sure the backend server is running on `http://localhost:3000`.
 2.  Start the frontend development server:
     ```bash
     npm run dev
