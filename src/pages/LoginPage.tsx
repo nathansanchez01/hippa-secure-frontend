@@ -44,13 +44,13 @@ const LoginPage: React.FC = () => {
                     <label htmlFor="password">Password</label>
                     <input id="password" name="password" type="password" value={form.password} onChange={handleChange} required className="form-control" />
                 </div>
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label htmlFor="role">Role</label>
                     <select id="role" name="role" value={form.role} onChange={handleChange} className="form-control">
                         <option value="clinician">Clinician</option>
                         <option value="admin">Admin</option>
                     </select>
-                </div>
+                </div> */}
                 <button type="submit" disabled={loading} className="auth-button">
                     {loading ? 'Logging in...' : 'Login'}
                 </button>
