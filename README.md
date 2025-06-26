@@ -1,69 +1,63 @@
-# React + TypeScript + Vite
+# Secure Patient Intake System - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for the Secure Patient Intake System, built with React, TypeScript, and Vite. It provides a user interface for admins and clinicians to interact with the patient management system.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   **Role-Based Interface**: The UI adapts based on whether the logged-in user is an `admin` or a `clinician`.
+-   **Secure Authentication**:
+    -   Login page with a role selector (`admin`/`clinician`).
+    -   Signup page for new `clinician` users.
+-   **Dashboard**:
+    -   **Admin View**: Displays a complete list of all patients with full details and access to the audit log viewer.
+    -   **Clinician View**: Displays a list of patients created by that clinician, with sensitive data like SSNs masked for privacy.
+-   **Patient Management**:
+    -   A dedicated form for clinicians to easily create new patient records.
+-   **Audit Log Viewer**:
+    -   An admin-exclusive page that presents a clear, tabular view of all system audit logs.
+-   **Modern Tech Stack**:
+    -   Built with **React** and **TypeScript**.
+    -   Fast development and build times powered by **Vite**.
+    -   Modern and clean user interface.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Follow these instructions to get the frontend development environment up and running.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+-   [Node.js](https://nodejs.org/) (v18 or later recommended)
+-   [npm](https://www.npmjs.com/) (included with Node.js)
+-   The [backend server](../backend) must be running.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+
+1.  Navigate to the `frontend` directory:
+    ```bash
+    cd frontend
+    ```
+2.  Install the necessary dependencies:
+    ```bash
+    npm install
+    ```
+
+### Running the Development Server
+
+1.  Make sure the backend server is running on `http://localhost:3001`.
+2.  Start the frontend development server:
+    ```bash
+    npm run dev
+    ```
+3.  Open your browser and navigate to the URL provided by Vite (usually `http://localhost:5173`).
+
+The application is configured to proxy API requests to the backend server, so no additional configuration is needed.
+
+### Building for Production
+
+To create a production-ready build of the application:
+
+```bash
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The optimized static files will be generated in the `dist` directory.
